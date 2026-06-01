@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Produto</title>
+
+<link rel="stylesheet" href="templatemo-catalyst-style.css">
+
+<style>
+
+body{
+    background:#fff;
+    font-family:Inter,sans-serif;
+}
+
+.produto-pagina{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.galeria-produto{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.imagem-principal{
+    width:100%;
+    border-radius:20px;
+    overflow:hidden;
+    background:#f5f5f5;
+}
+
+.imagem-principal img{
+    width:100%;
+    display:block;
+}
+
+.miniaturas{
+    display:flex;
+    gap:10px;
+    overflow:auto;
+}
+
+.miniaturas img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:12px;
+    cursor:pointer;
+    border:2px solid transparent;
+}
+
+.miniaturas img.ativa{
+    border-color:#b389fd;
+}
+
+.produto-info-pagina h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.produto-preco-pagina{
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.produto-descricao{
+    font-size:16px;
+    line-height:1.6;
+    color:#555;
+    margin-bottom:30px;
+}
+
+.btn-whatsapp{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:16px 28px;
+
+    background:#25d366;
+    color:white;
+
+    border-radius:14px;
+
+    text-decoration:none;
+    font-weight:700;
+    font-size:18px;
+}
+
+@media(max-width:768px){
+
+    .produto-pagina{
+        grid-template-columns:1fr;
+    }
+
+    .produto-info-pagina h1{
+        font-size:30px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="produto-pagina">
+
+    <div class="galeria-produto">
+
+        <div class="imagem-principal">
+            <img id="imagemPrincipal">
+        </div>
+
+        <div class="miniaturas" id="miniaturas"></div>
+
+    </div>
+
+    <div class="produto-info-pagina">
+
+        <h1 id="nomeProduto"></h1>
+
+        <div class="produto-preco-pagina">
+            <span id="precoProduto"></span>
+        </div>
+
+        <div class="produto-descricao" id="descricaoProduto"></div>
+
+        <a
+            id="btnWhatsapp"
+            class="btn-whatsapp"
+            target="_blank"
+        >
+            Pedir no WhatsApp
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(location.search);
+
+const nome = params.get("nome");
+const valor = params.get("valor");
+const descricao = params.get("descricao");
+
+const imagens = JSON.parse(
+    decodeURIComponent(params.get("imagens"))
+);
+
+document.getElementById("nomeProduto").textContent = nome;
+
+document.getElementById("precoProduto").textContent =
+    "R$ " + valor;
+
+document.getElementById("descricaoProduto").textContent =
+    descricao || "";
+
+document.getElementById("btnWhatsapp").href =
+`https://wa.me/557499641627?text=Quero o produto ${nome}`;
+
+const imagemPrincipal =
+document.getElementById("imagemPrincipal");
+
+imagemPrincipal.src =
+`thumbs/${imagens[0]}`;
+
+const miniaturas =
+document.getElementById("miniaturas");
+
+imagens.forEach((img,index)=>{
+
+    const mini = document.createElement("img");
+
+    mini.src = `thumbs/${img}`;
+
+    if(index === 0){
+        mini.classList.add("ativa");
+    }
+
+    mini.onclick = ()=>{
+
+        imagemPrincipal.src = `thumbs/${img}`;
+
+        document
+            .querySelectorAll(".miniaturas img")
+            .forEach(i=>i.classList.remove("ativa"));
+
+        mini.classList.add("ativa");
+
+    };
+
+    miniaturas.appendChild(mini);
+
+});
+
+</script>
+
+</body>
+</html>
