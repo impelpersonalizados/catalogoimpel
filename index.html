@@ -97,6 +97,14 @@
                             <span class="texto-filtro">Filtros</span>
                         </button>
 
+                        <div id="tooltipFiltro" class="tooltip-filtro" onclick="fecharTooltipFiltro()">
+                            <div class="tooltip-filtro-box" onclick="event.stopPropagation()">
+                                <span class="tooltip-filtro-close" onclick="fecharTooltipFiltro()">×</span>
+                                <p>É aqui que você filtra os produtos. Clique na seta para abrir as opções.</p>
+                            </div>
+                            <span class="tooltip-filtro-arrow"></span>
+                        </div>
+
                         <input type="text" id="buscarProdutoNav" placeholder="O que você procura?">
 
                     </div>
@@ -594,7 +602,8 @@
 
 
                 
-<a href="https://wa.me/557499641627?text=Quero%20o%20produto%20Copo%20T%C3%A9rmico%20Com%20Tampa%20Abridor%20-%20473ml" target="_blank" class="produto-link" data-categoria="copos" data-descricao="" data-indisponivel="false">
+
+<a href="#" target="" class="produto-link" data-indisponivel="true" data-categoria="copos" data-descricao="">
      <div class="produto">
 
         
@@ -640,12 +649,13 @@
 
             
 
-            <span class="btn-comprar">Pedir no WhatsApp</span>
+            <span class="btn-indisponivel">Indisponível</span>
 
         </div>
 
     </div>
 </a>
+
 
 
 
@@ -3632,6 +3642,25 @@
                 document.documentElement.style.overflow = aberto ? "hidden" : "";
             });
         }
+
+        function mostrarTooltipFiltro() {
+            const tooltip = document.getElementById("tooltipFiltro");
+            if (!tooltip) return;
+            tooltip.style.display = "block";
+        }
+
+        function fecharTooltipFiltro() {
+            const tooltip = document.getElementById("tooltipFiltro");
+            if (!tooltip) return;
+            tooltip.style.display = "none";
+            localStorage.setItem("tooltipFiltroFechado", "true");
+        }
+
+        window.addEventListener("load", function () {
+            if (!localStorage.getItem("tooltipFiltroFechado")) {
+                setTimeout(mostrarTooltipFiltro, 500);
+            }
+        });
     </script>
 
 </body>
