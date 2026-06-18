@@ -24,7 +24,7 @@ Silver & Acid Light-Mode SaaS Landing Page
     --text: #111111;
     --text-muted: #666666;
     --text-dim: #999999;
-    --accent: #ff002f;
+    --accent: #b389fd;
     --accent-hover: #c9adfa;
     --border: #E5E5E5;
     --border-light: #EEEEEE;
@@ -1435,7 +1435,7 @@ section {
 
     font-weight: 700;
 
-    color: #ff002f;
+    color: #b389fd;
 
     margin-right: -5px;
 }
@@ -1450,13 +1450,13 @@ section {
 
     letter-spacing: -1px;
 
-    color: #ff002f;
+    color: #b389fd;
 
 }
 
 .produto-pix {
     font-size: 14px;
-    color: #ff002f;
+    color: #b389fd;
     margin-left: -5px;
 }
 
@@ -1501,7 +1501,7 @@ section {
     width: 100%;
     padding: 12px;
 
-    background: #ff002f;
+    background: #b389fd;
     color: white;
 
     border-radius: 10px;
@@ -1731,7 +1731,7 @@ section {
     top: 12px;
     left: 12px;
 
-    background: #ff002f;
+    background: #b389fd;
     color: white;
 
     padding: 3px 12px;
@@ -1779,7 +1779,7 @@ section {
 }
 
 .filtros-produtos input:focus {
-    border-color: #ff002f;
+    border-color: #b389fd;
 }
 
 .filtros-produtos select {
@@ -1810,7 +1810,7 @@ section {
     padding-left: 40px;
     padding-right: 58px;
 
-    border: 1px solid #ff002f;
+    border: 1px solid #b389fd;
     border-radius: 999px;
 
     background: #ffffff;
@@ -1829,7 +1829,7 @@ section {
 }
 
 .busca-box input::placeholder {
-    color: #000000;
+    color: #b389fd;
 }
 
 
@@ -1855,7 +1855,7 @@ section {
     width: 22px;
     height: 22px;
 
-    background-color: #ff002f;
+    background-color: #b389fd;
 
     mask: url("https://cdn-icons-png.flaticon.com/512/622/622669.png") no-repeat center;
     -webkit-mask: url("https://cdn-icons-png.flaticon.com/512/622/622669.png") no-repeat center;
@@ -2103,8 +2103,8 @@ section {
     width: 12px;
     height: 12px;
 
-    border-right: 2px solid #ff002f;
-    border-bottom: 2px solid #ff002f;
+    border-right: 2px solid #b389fd;
+    border-bottom: 2px solid #b389fd;
 
     transform: rotate(45deg) translateY(-2px);
     margin-left: -11px;
@@ -2373,7 +2373,7 @@ section {
     left: 0;
     right: 0;
     z-index: 99999;
-    background: #000000;
+    background: #b389fd;
     border-bottom: 1px solid var(--border);
 }
 
